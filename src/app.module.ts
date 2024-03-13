@@ -12,8 +12,8 @@ import { AuthModule } from './auth/auth.module';
       envFilePath: '.env',
       isGlobal: true,
     }),
+
     MongooseModule.forRoot(process.env.DB_URI),
-    // BookModule,
     AuthModule,
 
   ],
