@@ -96,7 +96,15 @@ const handleSignUp = async () => {
         },
       })
       const data = await response.json()
-      // Handle response data as needed
+	  console.log(data)
+
+	  if(response.ok){
+		setToken(data.token)
+		setError('')
+	  }else{
+		setError(data.message)
+	  }
+     
     } catch (error) {
       setError('Login failed')
     }
@@ -193,8 +201,8 @@ const handleSignUp = async () => {
 		</Flex>
 	<Flex
   justifyContent='center'
-  alignItems='center' // This will center items vertically
-  height='100vh' // Set height to occupy full viewport height
+  alignItems='center' 
+  height='100vh' 
 >
   <Flex flexDirection='column' alignItems='center'>
     <Input type='text' placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
